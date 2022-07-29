@@ -33,17 +33,17 @@ async function getResponseList(param) {
     
     
     url = `https://pokeapi.co/api/v2/pokemon/${param}`
-	const response = await fetch(
-		url,
-		{
-			method: 'GET',
-		}
-	);
-	if (!response.ok) {
-		throw new Error(`HTTP error! status: ${response.status}`);
+    const response = await fetch(
+        url,
+        {
+            method: 'GET',
+        }
+    );
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
 
-	}
-	const data = await response.json();
+    }
+    const data = await response.json();
     
     let pokemon_name = data.name
     delete ls[pokemon_name]
@@ -77,17 +77,17 @@ async function getResponse() {
     search_item = document.getElementById('search_q').value
     
     url = `https://pokeapi.co/api/v2/pokemon/${search_item}`
-	const response = await fetch(
-		url,
-		{
-			method: 'GET',
-		}
-	);
-	if (!response.ok) {
-		throw new Error(`HTTP error! status: ${response.status}`);
+    const response = await fetch(
+        url,
+        {
+            method: 'GET',
+        }
+    );
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
 
-	}
-	const data = await response.json();
+    }
+    const data = await response.json();
     
     let pokemon_name = data.name
     delete ls[pokemon_name]
@@ -116,16 +116,18 @@ search_btn.addEventListener('click',() => getResponse())
 
 
 
-search.addEventListener("keyup", function (e) {
+search.addEventListener("keyup", function () {
+
+
+    const target = document.getElementById('search_q');
+    search_term = target.value.toLowerCase()
+
+
+    
    
-    if(e.key.length === 1 && e.key.match(/[a-z]/i)){
-        search_term += e.key
-    }
-    else if(e.key == 'Backspace')
-    {
-        search_term = search_term.slice(0, -1);
-    }
+    
    
+
    
 
     //For name in pokemon
@@ -245,6 +247,12 @@ window.onclick = function(event) {
     
 }
 
+const target = document.getElementById('search_q');
+
+target.addEventListener('paste', (event) => {
+    search_term = target.value
+    
+});
 
 
 

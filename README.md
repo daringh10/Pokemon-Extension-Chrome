@@ -1,3 +1,9 @@
-# Pokemon-Extension-Chrome
+# Pokemon-Extension-Chrome - My first web extension
+https://chrome.google.com/webstore/detail/quick-pokemon-search/ekakjiiieloliofkoolkfndchibppbha/related
+
 A quick and easy pokemon search using PokeApi. Facilitates getting information quick
-https://chrome.google.com/webstore/devconsole/7b096f19-63c8-44f3-bcb3-412f2138869a
+
+Notes:
+ - The autocomplete feature is entirley custom and uses no libray
+
+https://chrome.google.com/webstore/detail/quick-pokemon-search/ekakjiiieloliofkoolkfndchibppbha/related

@@ -2,8 +2,8 @@ search_btn = document.getElementById('search_btn')
 const search = document.getElementById("search_q");
 var pkmns_name_ls = new Array();
 search_term = ''
-let list_term_count = 0
 let ls = {}
+last_term = 'pikachu'
 
 
 
@@ -53,6 +53,7 @@ async function getResponseList(param) {
     document.getElementById('upa').href=`https://pokemondb.net/pokedex/${pokemon_name}`
     document.getElementById('update_name').innerHTML = proper_name
     document.getElementById('update_img').setAttribute('src',data.sprites.other['official-artwork'].front_default)
+    last_term = param
     search_term = ''
     search.value = ''
     var ul = document.getElementById("potential_names");
@@ -62,8 +63,8 @@ async function getResponseList(param) {
             ul.removeChild(child);
             child = ul.lastElementChild;
         }
+    for (var member in ls) delete ls[member];
     
-    list_term_count -=1
     
     
 }
@@ -75,6 +76,10 @@ async function getResponse() {
     
     
     search_item = document.getElementById('search_q').value
+    if (search_item == '')
+    {
+        window.open(`https://pokemondb.net/pokedex/${last_term}`,'_blank')
+    }
     
     url = `https://pokeapi.co/api/v2/pokemon/${search_item}`
     const response = await fetch(
@@ -85,6 +90,7 @@ async function getResponse() {
     );
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
+        
 
     }
     const data = await response.json();
@@ -97,6 +103,7 @@ async function getResponse() {
     document.getElementById('upa').href=`https://pokemondb.net/pokedex/${pokemon_name}`
     document.getElementById('update_name').innerHTML = proper_name
     document.getElementById('update_img').setAttribute('src',data.sprites.other['official-artwork'].front_default)
+    last_term = search_item
     search_term = ''
     search.value = ''
     var ul = document.getElementById("potential_names");
@@ -107,9 +114,9 @@ async function getResponse() {
             child = ul.lastElementChild;
         }
     
-    list_term_count -=1
     
     
+    for (var member in ls) delete ls[member];
 }
 
 search_btn.addEventListener('click',() => getResponse())
@@ -118,7 +125,7 @@ search_btn.addEventListener('click',() => getResponse())
 
 search.addEventListener("keyup", function () {
 
-
+    console.log(search_term)
     const target = document.getElementById('search_q');
     search_term = target.value.toLowerCase()
 
@@ -201,7 +208,7 @@ search.addEventListener("keyup", function () {
                     a.innerHTML = pkemon_name
                     li.appendChild(a)
                     ul.appendChild(li);
-                    list_term_count +=1
+                    
                 }
                 else{
                     
@@ -218,10 +225,11 @@ search.addEventListener("keyup", function () {
                     }
                     ul.removeChild(li)
                     delete ls[pkemon_name]
-                    list_term_count -=1
+                    
                 }
             }
         }
+        
 
        
        

@@ -6,4 +6,3 @@ A quick and easy pokemon search using PokeApi. Facilitates getting information q
 Notes:
  - The autocomplete feature is entirley custom and uses no external libray
 
-https://chrome.google.com/webstore/detail/quick-pokemon-search/ekakjiiieloliofkoolkfndchibppbha/related

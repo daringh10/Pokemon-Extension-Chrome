@@ -4,6 +4,6 @@ https://chrome.google.com/webstore/detail/quick-pokemon-search/ekakjiiieloliofko
 A quick and easy pokemon search using PokeApi. Facilitates getting information quick
 
 Notes:
- - The autocomplete feature is entirley custom and uses no libray
+ - The autocomplete feature is entirley custom and uses no external libray
 
 https://chrome.google.com/webstore/detail/quick-pokemon-search/ekakjiiieloliofkoolkfndchibppbha/related

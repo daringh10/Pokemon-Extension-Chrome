@@ -7,4 +7,3 @@ Notes:
  - The autocomplete feature is entirley custom and uses no external libray
  - Only works for  gen 1, this was my first time ever using javascript
  - I plan on making an actual usable version in the future.
-

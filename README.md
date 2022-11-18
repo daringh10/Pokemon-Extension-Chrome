@@ -7,3 +7,7 @@ Notes:
  - The autocomplete feature is entirley custom and uses no external libray
  - Only works for  gen 1, this was my first time ever using javascript
  - I plan on making an actual usable version in the future.
+
+UPDATES as of 11/17/2022:
+ - Now shows all gens up to Gen 6
+ - Type ahead works for all pokemon
